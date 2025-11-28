@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Overlock:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&display=swap" rel="stylesheet">
+  <title>Fortune Cookie 🥠</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<audio id="bg-music" src="music.mp3" loop autoplay></audio>
+<h1><strong>Fortune Cookie</strong></h1> <!-- outside the cookie box -->
+
+<div class="cookie-box">
+  <div id="cookie-container">
+    <img id="cookie-1" src="cookie1.png" alt="Closed Cookie">
+    <img id="cookie-2" src="cookie2.png" alt="Open Cookie">
+    <p id="fortune"></p>
+  </div>
+
+  <button id="new-fortune">Reveal Fortune</button>
+<button id="toggle-theme">🌑 Dark Mode</button>
+<button id="music-toggle">🔊 Music On</button>
+  <div id="toss-keep-container">
+  </div>
+
+  <div id="stats">
+    Level: <span id="level">1</span> |
+    Good fortunes: <span id="good-count">0</span>
+  </div>
+</div>
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,259 @@
+body {
+  background: #fff8e7;
+  font-family: "Overlock", sans-serif;
+  display: flex;
+  flex-direction: column; /* top-to-bottom stacking */
+  align-items: center;    /* center horizontally */
+  justify-content: flex-start; /* start at top */
+  min-height: 100vh;
+  margin: 0;
+  padding-top: 40px;
+  transition: background 0.3s, color 0.3s;
+}
+
+/* Dark Mode */
+body.dark {
+  background:#2c2c2c;
+  color: #f0f0f0;
+  box-shadow:inset 0 0 100px #000000;
+}
+h1 {
+  font-size: 80px;
+  color: #784f39;
+  margin-top:0px;
+  margin-bottom: 30px; /* space between title and cookie box */
+}
+
+body.dark h1 {
+  color: #fff8e7 /* warm golden/yellow for contrast */
+}
+
+/* Shrink cookie-box */
+.cookie-box {
+  display: flex;
+  flex-direction: column; /* stack cookie + buttons vertically */
+  align-items: center;
+  text-align: center;
+  background: #fff8e7;
+  border-radius: 40px;
+  padding: 40px 60px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+  max-width: 500px;
+  width: 90%;
+  margin-bottom: 40px;
+}
+
+
+body.dark .cookie-box {
+  background: #2c2c2c;       /* dark mode still works */
+  color: #f0f0f0;
+}
+body.dark .cookie-box h1 {
+  color: #fff8e7;       /* warm golden/yellow for contrast */
+}
+body.dark .cookie-box #fortune {
+  color: #5a3e36;      /* golden/yellow for contrast on dark background */
+}
+
+/* Cookie Container */
+#cookie-container {
+  position: relative;
+  width: 450px;   /* really big first cookie */
+  height: 450px;
+  margin: 0 auto 40px;
+}
+
+/* First cookie */
+#cookie-1 {
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+/* Second cookie (bigger cracked) */
+#cookie-2 {
+  width: 600px;   /* increased from 500px */
+  height: 600px;
+  cursor: pointer;
+  position: absolute;
+  top: -75px;     /* center over first cookie: (600-450)/2 = 75px */
+  left: -75px;
+  display: none;
+  transition: transform 0.3s ease;
+}
+
+
+#cookie-container img:hover {
+  transform: scale(1.05);
+}
+
+/* Shake Animation */
+.shake {
+  animation: shake 0.4s;
+}
+
+@keyframes shake {
+  0% { transform: rotate(0deg); }
+  25% { transform: rotate(10deg); }
+  50% { transform: rotate(-10deg); }
+  75% { transform: rotate(10deg); }
+  100% { transform: rotate(0deg); }
+}
+
+/* Fortune Text */
+#fortune {
+  position: absolute;
+  top: 48%; /* slightly higher to compensate for bigger cookie */
+  left: 47%; /* slightly left to center in bigger cookie */
+  transform: translate(-50%, -50%) rotate(10deg); /* tilt text */
+  text-align: center;
+  font-style: italic;
+  font-size: 20px;
+  color: #5a3e36;
+  width: 45%;            /* shorter box inside cookie */
+  line-height: 1.2;
+  display: none;          /* hidden initially */
+  pointer-events: none;
+  z-index: 10;}            /* on top of cookie */
+body.dark #fortune {
+  color: #2c2c2c; /* change this to whatever you want, or match your original styling */
+}
+
+
+/* Buttons */
+button {
+  font-family: "Overlock", sans-serif;  /* set font for all buttons */
+  margin-top: 25px;
+  padding: 22px 50px;    /* bigger buttons */
+  border: none;
+  border-radius: 18px;
+  background-color: #784f39;
+;
+color: white;
+  cursor: pointer;
+  font-size: 1.6rem;     /* bigger text */
+  font-weight: 700;      /* bold text */
+  transition: background 0.3s, transform 0.2s;
+}
+
+button:hover {
+  background: #e0a86e;}
+#toggle-theme {
+  position: fixed;       /* stays in top-right corner */
+  top: -18px;
+  right: 230px;
+  padding: 18px 36px;    /* bigger button */
+  border: none;
+  border-radius: 18px;   /* rounder corners */
+  background: #784f39;
+  color: white;
+  font-size: 1.6rem;     /* bigger text */
+  font-weight: 700;      /* bold for visibility */
+  cursor: pointer;
+  z-index: 100;          /* on top of everything */
+  transition: background 0.3s, transform 0.2s;
+}
+
+#toggle-theme:hover {
+  background: #E0A86C;
+  transform: scale(1.05); /* subtle hover zoom */
+}
+
+body.dark #toggle-theme {
+  background: #fff8e7;
+  color:#2c2c2c
+}
+
+body.dark #toggle-theme:hover {
+  background:#E0A86C;
+  transform: scale(1.05);
+}
+body.dark #new-fortune {
+  background: #fff8e7;       /* example: blue in dark mode */
+  color: #2c2c2c;
+}
+
+body.dark #new-fortune:hover {
+  background: #E0A86C;
+}
+/* Music Toggle - top right, next to Dark Mode */
+#music-toggle {
+  position: fixed;
+  top: -18px;
+  right: 10px;           /* sits at the rightmost edge */
+  padding: 18px 36px;
+  border: none;
+  border-radius: 18px;
+  background: #784f39;
+  color: white;
+  font-size: 1.6rem;
+  font-weight: 700;
+  cursor: pointer;
+  z-index: 100;
+  transition: background 0.3s, transform 0.2s;
+}
+
+#music-toggle:hover {
+  background: #e6956c;
+  transform: scale(1.05);
+}
+
+body.dark #music-toggle {
+  background: #fff8e7;
+  color:#2c2c2c
+}
+
+body.dark #music-toggle:hover {
+  background: #E0A86C;
+  transform: scale(1.05);
+}
+#toss-keep-container {
+  display: flex;
+  justify-content: center;
+  gap: 15px;       /* space between buttons */
+  margin-top: 10px; /* reduced space to move buttons up */
+}
+
+/* Toss & Keep buttons styling */
+#toss-btn, #keep-btn {
+  font-family: "Overlock", sans-serif;
+  font-size: 1.2rem;      /* smaller than main buttons */
+  font-weight: 700;
+  padding: 8x 16px;     /* smaller padding */
+  border: none;
+  border-radius: 12px;    /* rounded, cute buttons */
+  cursor: pointer;
+  background-color: #784f39; /* cookie brown */
+  color: white;
+  transition: background 0.3s, transform 0.2s;
+}
+
+/* Hover effect */
+#toss-btn:hover, #keep-btn:hover {
+  background-color: #e0a86e;
+  transform: scale(1.05); /* subtle zoom */
+}
+
+/* Dark mode for toss/keep */
+body.dark #toss-btn, 
+body.dark #keep-btn {
+  background-color: #fff8e7; /* light cream */
+  color: #2c2c2c;
+}
+
+body.dark #toss-btn:hover,
+body.dark #keep-btn:hover {
+  background-color: #e0a86c;
+  transform: scale(1.05);
+}
+
+#stats {
+  text-align: center;
+  margin: 10px 0; /* smaller spacing */
+  font-size: 1.3rem;
+}
